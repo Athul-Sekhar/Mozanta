@@ -12,10 +12,10 @@ import SplitPane from 'react-split-pane';
 function App() {
 
   const [name, setName] = useState("")
-  const [getDate, setDate] = useState("2020-08-08")
-  const [getGender, setGender] = useState("")
-  const [getClass, setClass] = useState("i")
-  const [getDiv, setDiv] = useState("A")
+  const [Date, setDate] = useState("2020-08-08")
+  const [gender, setGender] = useState("")
+  const [clas, setClass] = useState("i")
+  const [Division, setDiv] = useState("A")
   const [getData, setData] = useState([])
 
   React.useEffect(() => {
@@ -102,10 +102,10 @@ function App() {
 
     axios.post('http://localhost:8080/student/create', {
       name: name,
-      cls: getClass,
-      div: getDiv,
-      dob: getDate,
-      gen: getGender
+      cls: clas,
+      div: Division,
+      dob: Date,
+      gen: gender
     })
     .then(function (response) {
       if (response.data.status !== "success"){
@@ -144,9 +144,9 @@ function App() {
   }}>
     <br></br>
     <label for="dob">Dob: </label>
-    <input type="date" id="dob" name="birthday" max={new Date(new Date().getTime()).toISOString().substring(0, 10)}  value={getDate} onChange={dateChange} />
-    {/* <input type="date" id="dob" name="birthday" max={new Date(new Date().getTime() + 86400000).toISOString().substring(0, 10)}  value={getDate} onChange={dateChange} /> */}
-    {/* {console.log(getDate)} */}
+    <input type="date" id="dob" name="birthday" max={new Date(new Date().getTime()).toISOString().substring(0, 10)}  value={Date} onChange={dateChange} />
+    {/* <input type="date" id="dob" name="birthday" max={new Date(new Date().getTime() + 86400000).toISOString().substring(0, 10)}  value={Date} onChange={dateChange} /> */}
+    {/* {console.log(Date)} */}
         <br></br>
         <br></br>
         </div> 
@@ -187,7 +187,7 @@ function App() {
 
   <FormControl component="fieldset">
   <label>Gender</label>
-  <RadioGroup aria-label="gender" name="gender" value={getGender} onChange={genderChange}>
+  <RadioGroup aria-label="gender" name="gender" value={gender} onChange={genderChange}>
     <FormControlLabel value="female" control={<Radio />} label="Female" />
     <FormControlLabel value="male" control={<Radio />} label="Male" />
   </RadioGroup>

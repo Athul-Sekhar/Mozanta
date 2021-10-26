@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.example.demo.entity.Students;
 
 @Repository
-public interface StudentsRepo extends MongoRepository<Students,Integer>{
+public interface StudentsRepo extends MongoRepository<Students,String>{
 
 }

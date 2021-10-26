@@ -2,7 +2,6 @@ package com.example.demo.entity;
 
 
 import javax.validation.constraints.Pattern;
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -14,13 +13,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Students {
 	@Transient
     public static final String SEQUENCE_NAME = "user_sequence";
-
 	@Id
-	
-	
 	private String id;
 	@Pattern(regexp="^[a-zA-Z ]+$",message="Name contains only Alphabet along with Space")
-    private String Name;
+    private String Name; //java instant variables
     private String dob;
     private String cls;
     private String div;
